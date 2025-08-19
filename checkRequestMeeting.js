@@ -253,7 +253,9 @@ const booths = [
   }
 
   await browser.close();
+const enabledOnly = results.filter(r => r.enabled);
+fs.writeFileSync("request_meeting_results.json", JSON.stringify(enabledOnly, null, 2));
+console.log("Done! Saved only enabled booths to request_meeting_results.json");
 
-  fs.writeFileSync("request_meeting_results.json", JSON.stringify(results, null, 2));
-  console.log("Done! Results saved to request_meeting_results.json");
+  
 })();
